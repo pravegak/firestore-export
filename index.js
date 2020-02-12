@@ -22,7 +22,18 @@ let results = db.collection(collectionName)
   .get()
   .then(snapshot => {
     snapshot.forEach(doc => {
-      data.push(doc.data());
+      let document = doc.data();
+      let date;
+      let timestamp = document.timestamp || document.timeStamp
+      if (timestamp) {
+        date = timestamp.toDate().toISOString();
+      }
+
+      delete document["timestamp"]
+      delete document["timeStamp"]
+
+      document["timestamp"] = date;
+      data.push(document);
     })
     return data;
   })
