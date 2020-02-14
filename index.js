@@ -1,7 +1,6 @@
 const firebaseAdmin = require('firebase-admin');
 const { Parser } = require('json2csv');
 const serviceAccount = require('./config/serviceAccountKey.json');
-const fs = require('fs');
 
 let databaseURL = process.argv[2];
 let collectionName = process.argv[3];
@@ -35,7 +34,6 @@ let results = db.collection(collectionName)
       document["timestamp"] = date;
       data.push(document);
     })
-    return data;
   })
   .catch(error => {
     console.log(error);
@@ -44,10 +42,5 @@ let results = db.collection(collectionName)
 results.then(dt => {
   console.log(`writing ${collectionName} collection to file.`)
   const parser = new Parser();
-  fs.writeFile("export.csv", parser.parse(data), function (err) {
-    if (err) {
-      return console.log(err.message);
-    }
-    console.log("file was successfully saved!");
-  });
+  process.stdout.write(parser.parse(data));
 });

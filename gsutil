@@ -1,0 +1,10 @@
+[33m[nodemon] 1.19.2[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching dir(s): *.*[39m
+[32m[nodemon] starting `node index.js https://jobget-5537a.firebaseio.com jobData cp - gs://jobget-analytics/data.csv`[39m
+retrieving data from jobData collection
+[33m[nodemon] 1.19.2[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching dir(s): *.*[39m
+[32m[nodemon] starting `node index.js https://jobget-5537a.firebaseio.com jobData cp - gs://jobget-analytics/data.csv`[39m
+retrieving data from jobData collection
