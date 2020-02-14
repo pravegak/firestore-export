@@ -10,8 +10,6 @@ firebaseAdmin.initializeApp({
   databaseURL: databaseURL
 });
 
-console.log(`retrieving data from ${collectionName} collection`)
-
 let db = firebaseAdmin.firestore();
 db.settings({ timestampsInSnapshots: true });
 
@@ -40,7 +38,6 @@ let results = db.collection(collectionName)
   })
 
 results.then(dt => {
-  console.log(`writing ${collectionName} collection to file.`)
   const parser = new Parser();
   process.stdout.write(parser.parse(data));
 });
